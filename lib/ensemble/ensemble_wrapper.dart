@@ -49,7 +49,8 @@ class EnsembleWrapper extends StatelessWidget {
   Map<String, Function> _getExternalMethods() {
     return {
       // Method to navigate to a Flutter screen from Ensemble
-      'navigateToFlutterScreen': ({String? title, String? message, List? options}) {
+      'navigateToFlutterScreen': (
+          {String? title, String? message, List? options}) {
         // Create a map of the parameters received from Ensemble
         final Map<String, dynamic> data = {
           if (title != null) 'title': title,
@@ -74,7 +75,7 @@ class EnsembleWrapper extends StatelessWidget {
         };
 
         print('Showing Flutter modal with data: $data');
-        
+
         // Show modal with the passed data
         showDialog(
           context: navigatorKey.currentContext!,
@@ -135,13 +136,25 @@ class EnsembleWrapper extends StatelessWidget {
         // Extract data for the dropdown from the payload
         List<String> items = [];
         if (data?['items'] is List) {
-          items = (data!['items'] as List).map((item) => item.toString()).toList();
+          items =
+              (data!['items'] as List).map((item) => item.toString()).toList();
+        }
+
+        // Ensure selectedValue is valid
+        String? selectedValue;
+        if (data?['selectedValue'] != null) {
+          // If selectedValue is provided, ensure it's in the items list
+          selectedValue = data!['selectedValue'].toString();
+          if (!items.contains(selectedValue)) {
+            // If the provided selectedValue is not in the list, set to null
+            selectedValue = null;
+          }
         }
 
         // Create and return the custom dropdown widget
         return CustomDropdown(
           items: items,
-          selectedValue: data?['selectedValue'],
+          selectedValue: selectedValue,
           title: data?['title'] ?? 'Select an option',
           // Map event handlers from Ensemble to the widget
           events: {
@@ -169,7 +182,8 @@ class EnsembleWrapper extends StatelessWidget {
         // Extract data for the toggle switch from the payload
         List<String> labels = [];
         if (data?['labels'] is List) {
-          labels = (data!['labels'] as List).map((item) => item.toString()).toList();
+          labels =
+              (data!['labels'] as List).map((item) => item.toString()).toList();
         }
 
         // Extract the initial index
@@ -182,7 +196,7 @@ class EnsembleWrapper extends StatelessWidget {
         return ToggleSwitch(
           // Number of switches - derived from labels length
           totalSwitches: labels.length,
-          // Labels array 
+          // Labels array
           labels: labels,
           // Set initial selected index (-1 means nothing selected initially)
           initialLabelIndex: initialIndex,
@@ -190,7 +204,10 @@ class EnsembleWrapper extends StatelessWidget {
           minWidth: 100.0,
           cornerRadius: 20.0,
           activeBgColors: const [
-            [Colors.blue], [Colors.green], [Colors.orange], [Colors.purple]
+            [Colors.blue],
+            [Colors.green],
+            [Colors.orange],
+            [Colors.purple]
           ],
           activeFgColor: Colors.white,
           inactiveBgColor: Colors.grey.shade300,
