@@ -2,6 +2,7 @@
 
 This repository demonstrates seamless integration between Ensemble UI and Flutter, enabling developers to combine the power of Ensemble's low-code approach with Flutter's rich widget ecosystem. The project showcases how to embed Ensemble screens within a Flutter application and how Flutter custom widgets can be used directly within Ensemble screens.
 
+Using this Ensemble App as Example: https://studio.ensembleui.com/app/OgCSR89seXoKV6KlxGDk/screens
 ## Integration Flows
 
 ### Opening Ensemble Screens from Flutter
@@ -12,7 +13,9 @@ The demo shows how native Flutter applications can easily navigate to and render
 2. Navigating from Flutter UI to Ensemble screens
 3. Passing data between Flutter and Ensemble contexts
 
-[View Demo Video](https://link-to-your-recording)
+
+https://github.com/user-attachments/assets/527c03e5-29f3-4c0d-99ae-6af385ed8ecf
+
 
 ### Using Custom Flutter Widgets in Ensemble
 
@@ -23,7 +26,9 @@ The project also demonstrates how to create and use custom Flutter widgets withi
 3. Using Flutter widgets declaratively in Ensemble YAML
 4. Passing and propagating values between Ensemble and custom Flutter widgets
 
-[View Demo Video](https://link-to-your-recording)
+https://github.com/user-attachments/assets/600134c2-9047-4d69-a9c5-d10813135bc1
+
+
 
 ## Getting Started
 
