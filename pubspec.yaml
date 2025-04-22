@@ -40,7 +40,7 @@ dependencies:
   ensemble:
     git:
       url: https://github.com/EnsembleUI/ensemble.git
-      ref: fixt-externalWidget
+      ref: ensemble-v1.1.48
       path: modules/ensemble
 
   toggle_switch: ^2.3.0
